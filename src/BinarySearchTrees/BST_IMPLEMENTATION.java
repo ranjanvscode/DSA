@@ -1,8 +1,6 @@
 package BinarySearchTrees;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 public class BST_IMPLEMENTATION {
 
@@ -86,7 +84,7 @@ public class BST_IMPLEMENTATION {
     }
 
     //Breadth First Search(BFS) Traversal
-    static void bfs(Node root)//All level order traversal
+    static void levelOrderTraversal(Node root)
     {
         Queue<Node> q=new LinkedList<>();
         if(root!=null) q.add(root);
@@ -144,8 +142,124 @@ public class BST_IMPLEMENTATION {
         }
     }
 
+    //post Order Traversal using one stack
+    public static void postOrderTraversalUsingStack(Node root)
+    {
 
+         Stack<Node> stc = new Stack<>();
+
+         Node current = root;
+
+         while (current!=null || !stc.isEmpty())
+         {
+             if (current!=null)
+             {
+                 stc.add(current);
+                 current = current.left;
+             }else
+             {
+                 Node temp = stc.peek().right;
+
+                 if (temp==null)
+                 {
+                     temp = stc.pop();//popped num
+                     System.out.print(temp.val+" ");
+
+                     while (!stc.isEmpty() && temp==stc.peek().right)// it will check that popped num is in right side or left, if left then it will pop again
+                     {
+                         temp=stc.pop();
+                         System.out.print(temp.val+" ");
+                     }
+                 }else
+                 {
+                     current = temp;
+                 }
+             }
+         }
+    }
+
+    //post Order Traversal using one stack
+    public static void postOrderTraversalUsingStack2(Node root)
+    {
+        Stack<Node> stc1 = new Stack<>();
+        Stack<Node> stc2 = new Stack<>();
+
+        stc1.add(root);
+
+        while (!stc1.isEmpty())
+        {
+            Node temp = stc1.pop();
+            stc2.add(temp);
+            if (temp.left!=null) stc1.add(temp.left);
+            if (temp.right!=null) stc1.add(temp.right);
+        }
+
+        while (!stc2.isEmpty())
+        {
+            System.out.print(stc2.pop().val+" ");
+        }
+    }
+
+
+    public static int diameterOfTree(Node root){
+
+         if (root==null || (root.left==null && root.right==null))
+             return 0;
+
+         int leftHeight = diameterOfTree(root.left);
+         int rightHeight = diameterOfTree(root.right);
+         int mid = heightOfTree(root.left)+heightOfTree(root.right);
+         if (root.left!=null) mid++;
+         if (root.right!=null) mid++;
+         int max = Math.max(mid,Math.max(leftHeight,rightHeight));
+
+         return max;
+    }
+
+    public static boolean balanceTree(Node p,Node q)
+    {
+        if(p==null && q==null) return true;
+        if (p==null || q==null) return false;
+        if(p.val!=q.val) return false;
+
+        return balanceTree(p.left,q.left) && balanceTree(p.right,q.right);
+    }
+
+    public static void binaryTreePath(Node root, List<String> ans,String str)
+    {
+        if (root==null) return;
+        if (root.left==null && root.right==null) {
+            str+=root.val;
+            ans.add(str);
+            return;
+        }
+
+        binaryTreePath(root.left,ans,str+root.val+"->");
+        binaryTreePath(root.right,ans,str+root.val+"->");
+    }
+
+    public static boolean contains(Node root, Node target)
+    {
+        if (root==null) return false;
+        if (target==root) return true;
+        return contains(root.left, target) || contains(root.right,target);
+    }
+
+    public static Node lowestCommonAncestor(Node root,Node p,Node q)
+    {
+        if (p==root || q==root) return root;
+        if (p==q) return p;
+        boolean leftNode = contains(root.left,p);
+        boolean rightNode = contains(root.right,q);
+
+        if ((leftNode && rightNode) || (!leftNode && !rightNode)) return root;
+        if (leftNode && !rightNode)  return lowestCommonAncestor(root.left,p,q);
+        if (!leftNode && rightNode)  return lowestCommonAncestor(root.right,p,q);
+
+    }
     public static void main(String[] args) {
+
+        List<String> ans = new ArrayList<>();
 
         Node a=new Node(1);
         Node b=new Node(2);
@@ -178,17 +292,31 @@ public class BST_IMPLEMENTATION {
 //        for(int x=1;x<=level;x++)
 //            levelPrint(a,4);
 
+//        levelOrderTraversal(a);
 
-//        bfs(a);
 //        preorder(a);
 //        System.out.println();
 //        inorder(a);
 //        System.out.println();
 //        postorder(a);
 //        System.out.println();
+
 //        inorderTraversalUsingStack(a);
 //        System.out.println();
 //        preorderTraversalUsingStack(a);
+
+
+//        inorderTraversalUsingStack(a);
+
+//        System.out.println(diameterOfTree(a));
+
+//        binaryTreePath(a,ans,"");
+//        System.out.println(ans);
+
+//        postOrderTraversalUsingStack2(a);
+
+//        Node node = lowestCommonAncestor(a, h, j);
+//        System.out.println(node.val);
 
     }
 }
