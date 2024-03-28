@@ -168,10 +168,10 @@ public class BST_IMPLEMENTATION {
         d.right=i;
         e.left=j;
 
-        System.out.println(size(a));
-        System.out.println(sumOfNodes(a));
-        System.out.println(maxNode(a));
-        System.out.println(heightOfTree(a));
+//        System.out.println(size(a));
+//        System.out.println(sumOfNodes(a));
+//        System.out.println(maxNode(a));
+//        System.out.println(heightOfTree(a));
 
         // Level by level printing.
 //        int level = heightOfTree(a)+1;// T.C = O(n logn) thoda kharab hai
