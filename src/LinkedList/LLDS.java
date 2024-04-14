@@ -37,9 +37,10 @@ public class LLDS {
                 head = temp;
             }else {
                 temp.next = head;
+                head=temp;
             }
 
-            head = temp;
+
         }
 
         void insertAt(int idx, int val)
@@ -177,19 +178,19 @@ public class LLDS {
              System.out.println(slow.data);
          }
 
-         void  deleteMiddleEle(Node temp)
+         void  deleteMiddleEle(Node head)
          {
-             Node fast=temp;
-             Node slow=temp;
+             Node fast=head;
+             Node slow=head;
+                 Node temp = null;
 
-             while(fast.next.next!=null && fast.next.next.next!=null && fast.next.next.next.next!=null)
+             while (fast.next!=null && fast.next.next!=null)
              {
+                 temp = slow;
                  slow = slow.next;
                  fast = fast.next.next;
              }
-
-             assert slow != null;
-             slow.next = slow.next.next;
+             temp.next = temp.next.next;
          }
 
 
@@ -207,7 +208,7 @@ public class LLDS {
 
         LLDataStructure t2 = new LLDataStructure();
 
-//        t2.insertLastEle(25);
+        t2.insertLastEle(25);
         t2.insertLastEle(36);
         t2.insertLastEle(56);
         t2.insertLastEle(81);

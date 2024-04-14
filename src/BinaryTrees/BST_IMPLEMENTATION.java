@@ -1,4 +1,4 @@
-package BinarySearchTrees;
+package BinaryTrees;
 
 import java.util.*;
 
@@ -125,7 +125,8 @@ public class BST_IMPLEMENTATION {
         }
     }
 
-    public static void inorderTraversalUsingStack(Node root) {
+    public static void inorderTraversalUsingStack(Node root)
+    {
         Stack<Node> stack = new Stack<>();
         Node current = root;
 
@@ -200,8 +201,8 @@ public class BST_IMPLEMENTATION {
         }
     }
 
-
-    public static int diameterOfTree(Node root){
+    public static int diameterOfTree(Node root)
+    {
 
          if (root==null || (root.left==null && root.right==null))
              return 0;
@@ -256,6 +257,7 @@ public class BST_IMPLEMENTATION {
         if (leftNode && !rightNode)  return lowestCommonAncestor(root.left,p,q);
         if (!leftNode && rightNode)  return lowestCommonAncestor(root.right,p,q);
 
+        return root;
     }
     public static void main(String[] args) {
 

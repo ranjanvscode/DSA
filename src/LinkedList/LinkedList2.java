@@ -343,6 +343,5 @@ public class LinkedList2  {
         LL1.InsertAtEnd(10);
         LL1.InsertAtEnd(11);
         LL1.InsertAtEnd(12);
-
     }
 }
