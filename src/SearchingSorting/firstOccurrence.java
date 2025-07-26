@@ -46,8 +46,8 @@ public class firstOccurrence {
             if (arr[mid]==target)
             {
                 res=mid;
-//                high=mid-1; // First occurrence
-                low=mid+1; // Last occurrence
+                high=mid-1; // First occurrence
+//                low=mid+1; // Last occurrence
             } else if (arr[mid] < target) {
                 low=mid+1;
             }else {
@@ -62,7 +62,7 @@ public class firstOccurrence {
 
         int[] arr = {1,2,3,3,5,5,5,5,5,6,6,6,7,7,7,8,9,9,9,10};
 
-        int target=15;
+        int target=6;
         firstAndLastOcc(arr,target);
     }
 }

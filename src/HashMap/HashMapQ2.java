@@ -55,7 +55,9 @@ public class HashMapQ2 {
 
             max = max<size?size:max;
         }
+
         System.out.println(max);
+        System.out.println(size);
         
     }
 }

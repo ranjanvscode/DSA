@@ -1,5 +1,6 @@
 //2D Array Tutorial
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Array2 {
@@ -51,7 +52,7 @@ public class Array2 {
         {
             for (int j=0;j<r;j++)
             {
-                ans[i][j]= matrix[j][i];
+                ans[i][j] = matrix[j][i];
             }
         }
         printmatrix(ans,c,r);
@@ -107,14 +108,13 @@ public class Array2 {
             ans[i][0] = ans[i][i]=1;
         }
 
-        for (int i = 1; i < n; i++) {
+        for (int i = 2; i < n; i++) {
             for (int j=1;j<i;j++)
             {
                 ans[i][j]=ans[i-1][j-1] + ans[i-1][j];
             }
         }
         return ans;
-
     }
 
     static void printpastri(int[][] ans,int n)
@@ -209,12 +209,12 @@ public class Array2 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter rows or column number of matrix:");
-        int n= sc.nextInt();
-        int[][] arr = new int[n][n];
-        spiralinput(arr,n,n);
-        printmatrix(arr,n,n);
+//        System.out.println("Enter rows or column number of matrix:");
+//        int n= sc.nextInt();
+        int[][] arr = {{1,2,3},{4,5,6},{7,8,9}};
 
+        Array2.spiralprint(arr,3,3);
+        int x = arr.length;
          /*System.out.println("Enter dimension of first array");
         int r1= sc.nextInt();
         int c1= sc.nextInt();

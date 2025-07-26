@@ -9,6 +9,8 @@ public class Heap {
 
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
+        Heap hh = new Heap();
+
 
 //        list.add(6);
 //        list.add(7);

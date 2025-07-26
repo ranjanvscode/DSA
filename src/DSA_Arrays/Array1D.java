@@ -1,5 +1,8 @@
 package DSA_Arrays;
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 class ArrayMethod
 {
     public static void display(int[] arr)
@@ -67,6 +70,10 @@ class ArrayMethod
             }
         }
         System.out.println("Sum of even indices element: "+sum);
+
+        //Using Stream api
+        System.out.println("Sum of even indices element 2: " + IntStream.range(0, arr.length).filter(i -> i%2 == 0).map(i -> arr[i]).sum() );
+
     }
 
     public static void printEvenEle(int[] arr)
@@ -77,6 +84,9 @@ class ArrayMethod
                 System.out.println(a+" ");
             }
         }
+
+        //Using Stream api
+        Arrays.stream(arr).filter(x->x%2==0).peek(System.out::println).forEach(x->{});
     }
 
     public static void maxEle(int[] arr)
@@ -89,6 +99,8 @@ class ArrayMethod
             }
         }
         System.out.println("Maximum Number: "+max);
+
+        System.out.println("Max num: " + Arrays.stream(arr).max().getAsInt());
     }
 
     public static void secMaxEle(int[] arr)
@@ -131,8 +143,8 @@ public class Array1D {
 
     public static void main(String[] args)
     {
-        int[] arr3 = {1,3,2,6,5};
-        ArrayMethod.peakEle(arr3);
+        int[] arr3 = {1,3,28,22,6,5};
+        ArrayMethod.maxEle(arr3);
 
 
     }

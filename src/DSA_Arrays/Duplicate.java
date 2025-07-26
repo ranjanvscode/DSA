@@ -8,9 +8,9 @@ public class Duplicate {
         int count=1;
         int l= arrr.length;
 
-        for (int i=0;i< l-1;i++)
+        for (int i=0;i<l-1;i++)
         {
-            for (int t=i-1;t>=0;t--)
+            for (int t=i-1;t>=0;t--)//Checking duplicate number
             {
                 if (arrr[i]==arrr[t])
                 {

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.ListResourceBundle;
 
@@ -395,7 +397,6 @@ public class LL_Practice {
         ll.Insert(18);
         ll.Insert(20);
 
-
 //        Print(ll.head);
 //        System.out.println(count(ll.head));
 //        middleEle(ll.head);
@@ -408,11 +409,6 @@ public class LL_Practice {
 //        Print(deleteNode2(ll.head, 20));
 
 //        findNthNodeFromEnd2(ll.head, 20);
-        removingNthNodeFromEnd2(ll.head,3);
-
-
-
-
 
     }
 

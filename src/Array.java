@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 class ranjan{
@@ -22,8 +23,13 @@ class ranjan{
     {
         int sum=0;
         if (start==1)
-        {sum=arr[end-1];}
-        else {sum=arr[end-1]-arr[start-2];}
+        {
+            sum=arr[end-1];
+        }
+        else
+        {
+            sum=arr[end-1]-arr[start-2];
+        }
         System.out.println("Sum="+sum);
     }
 
@@ -44,7 +50,7 @@ class ranjan{
         }
     }
 
-    static void reverse(int[] arr)
+    static void reverse(int[] arr)//Sort in descending order
     {
         int length = arr.length;
 
@@ -64,7 +70,7 @@ class ranjan{
     static int[] freqArray(int[] arr)
     {
         int[] freq = new int[100005];
-        int n= arr.length;
+        int n = arr.length;
         for (int i=0;i<n;i++)
         {
             freq[arr[i]]+=1;
@@ -74,7 +80,6 @@ class ranjan{
 
     static void search(int[] arr , int target)
     {
-
         if(arr[target]>0)
         {
             System.out.println("Yes! "+target+" is present in array.");
@@ -90,13 +95,16 @@ class ranjan{
         {
             totalsum+=arr[i];
         }
+
+        System.out.println(Arrays.stream(arr).sum());
+
         return totalsum;
     }
 
     static boolean presuf(int[] arr)
     {
         int n= arr.length;
-        int total=totalsumarr(arr);
+        int total=Arrays.stream(arr).sum();
         int psum=0,ssum=0;
         for(int i=0;i<n;i++)
         {
@@ -113,15 +121,16 @@ class ranjan{
     static void sideanynumber(int [] arr)
     {
         int n = arr.length;
+        int x=6;
         for (int i=0,j=0;i<n;i++)
         {
 
-            if (arr[j]==0 && arr[i]!=0)
+            if (arr[j]==x && arr[i]!=0)
             {
                 arr[j]=arr[i];
-                arr[i]=0;
+                arr[i]=x;
             }
-            if (arr[j]!=0)
+            if (arr[j]!=x)
             {
                 j++;
             }
@@ -130,10 +139,13 @@ class ranjan{
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-//        int[] arr ={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+        int[] arr ={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
 //        int [] arr = {12,15,10,8,16,13,11,12,5,6,7,1,8,3,10};
 //        int[] arr3={1,4,22,7,5,15};
 //        int[] arr={5,2,6,3,8,1,9,10,12};
 
+        boolean cc = ranjan.presuf(arr);
+        System.out.println(cc);
+        ranjan.print(arr);
     }
 }

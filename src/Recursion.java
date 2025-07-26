@@ -268,10 +268,9 @@ public class Recursion {
         return;
         }
         if (open<n)
-        bracket(n,  open+1, close, str+"(");
+            bracket(n,  open+1, close, str+"(");
         if (close<open)
-        bracket (n, open,  close+1,str+")");
-        return;
+            bracket (n, open,  close+1,str+")");
         }
     //HCF
     public static int hcf(int x,int y)
@@ -298,6 +297,7 @@ public class Recursion {
 //        int[] arr = {5,3,8,6,1,8,2,7,6,1,8};
 //        System.out.println(frogJump(arr,0,arr.length));
 
-        Keypad("263",2,"");
+        String s = "Ranjan";
+        System.out.println(Recursion.towerOfHanoi(5,"S","H","D"));
     }
 }

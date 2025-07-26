@@ -28,6 +28,7 @@ public class Array2D_Q2{
         }
 
         System.out.println("printing element above the secondary line:");
+
         for (int i=0;i<r;i++) {
             for (int j=0;j<c;j++)
             {
